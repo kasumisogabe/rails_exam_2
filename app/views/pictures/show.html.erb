@@ -1,0 +1,10 @@
+<h1>画像詳細画面</h1>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image.url %>
+</p>
+<p>投稿者: <%= @picture.user.name %></p>
+<p>タイトル: <%= @picture.title %></p>
+<p>コメント: <%= @picture.content %></p>
+
+<%= link_to "投稿一覧画面にもどる", pictures_path %>
