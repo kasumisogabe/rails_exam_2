@@ -21,9 +21,11 @@
     <%= form.text_area :content %>
   </div>
   
-  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
+  <div class="field">
+    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+      <%= form.file_field :image %>
+      <%= form.hidden_field :image_cache %>
+  </div>
   <%= form.submit %>
 <% end %>
   <%= link_to "投稿一覧画面にもどる", pictures_path %>

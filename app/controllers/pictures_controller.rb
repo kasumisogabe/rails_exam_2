@@ -24,7 +24,11 @@ class PicturesController < ApplicationController
   end
 
   def edit
-    
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to pictures_path
+    end
   end
 
   def update
@@ -37,6 +41,11 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    if @user == current_user
+      render "destroy"
+    else
+      redirect_to pictures_path
+    end
     @picture.destroy
     redirect_to picturess_path, notice:"ブログを削除しました！"
   end
