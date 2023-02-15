@@ -3,11 +3,7 @@
 <p>メールアドレス: <%= @user.email %></p>
 
 <p>プロフィール画像:</p>
-<% if @user.avatar? %>
   <%= image_tag @user.avatar.url%>
-<% else %>
-  <%= image_tag ("noavatar.png") %>
-<% end %>
 
 <p>
 <%= link_to "画像一覧画面へ", pictures_path%>
