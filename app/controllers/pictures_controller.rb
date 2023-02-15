@@ -25,6 +25,7 @@ class PicturesController < ApplicationController
   end
 
   def edit
+    @picture = Picture.find(params[:id])
     if @user == current_user
       render "edit"
     else
