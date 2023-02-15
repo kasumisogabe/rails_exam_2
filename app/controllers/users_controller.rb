@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:new, :create]
+  skip_before_action :login_required, only: [:new, :create, :edit, :update]
 
   def new
     @user = User.new
@@ -18,10 +18,25 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path, notice: "プロフィールを編集しました！"
+    else
+      flash.now[:danger] = "プロフィールを更新できませんでした"
+      render :edit
+    end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                :password_confirmation)
+                                :password_confirmation,
+                                :avatar)
   end
 end
