@@ -26,11 +26,6 @@ class PicturesController < ApplicationController
 
   def edit
     @picture = Picture.find(params[:id])
-    if @user == current_user
-      render "edit"
-    else
-      redirect_to pictures_path
-    end
   end
 
   def update
