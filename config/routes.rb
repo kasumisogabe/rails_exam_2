@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites
   resources :sessions
   resources :users
 end
