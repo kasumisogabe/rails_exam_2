@@ -20,7 +20,7 @@ class PicturesController < ApplicationController
   end
 
   def show
-    
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
   end
 
   def edit
@@ -32,7 +32,6 @@ class PicturesController < ApplicationController
   end
 
   def update
-    
     if @picture.update(picture_params)
       redirect_to pictures_path, notice: '投稿を編集しました'
     else
