@@ -14,6 +14,7 @@ class PicturesController < ApplicationController
     return render :new if params[:back]
     if @picture.save
       redirect_to pictures_path, notice: '画像を投稿しました'
+      ContactMailer.contact_picture(@picture).deliver
     else
       render :new
     end
