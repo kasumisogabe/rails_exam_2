@@ -37,6 +37,7 @@ class PicturesController < ApplicationController
     end
   end
 
+  # test comment
   def destroy
     @picture.destroy
     redirect_to pictures_path, notice:"ブログを削除しました！"
